@@ -1,5 +1,5 @@
 # XCTestCaseAsync
-async support for XCTestCase with timeout, retry feature
+async support for XCTestCase with timeout, retry feature using main runloop
 
 ## Feature
 * Async Test
