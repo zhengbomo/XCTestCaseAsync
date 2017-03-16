@@ -1,10 +1,17 @@
 # XCTestCaseAsync
 async support for XCTestCase with timeout, retry feature
 
-## feature
+
+
+## Feature
 * Async Test
 * Timeout support
 * Retry support
+
+## Cocoapods
+```bash
+pod 'XCTestCaseAsync'
+```
 
 # Usage
 ### 1. Objective-C
