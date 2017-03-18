@@ -13,6 +13,11 @@ typedef void(^CompleteBlock)(BOOL finished);
 /** asycn support for XCTestCase */
 @interface XCTestCase (Async)
 
+/** do nothing and waiting with time interval
+ *  the deviation is 0.1s
+ */
+- (void)waitWithInterval:(NSTimeInterval)interval;
+
 /** 
  waiting for an async block, you must call complete() when async block finished
  @param block asyncblock (you must call complete() when finish)

@@ -10,9 +10,12 @@
 
 @implementation XCTestCase (Async)
 
-- (void)setUp
+- (void)waitWithInterval:(NSTimeInterval)interval
 {
-    self.continueAfterFailure = false;
+    do {
+        [NSRunLoop.mainRunLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+        interval -= 0.1;
+    } while (interval > 0);
 }
 
 - (void)waitWithAsync:(void (^ _Nonnull)(FinishBlock _Nonnull complete))block

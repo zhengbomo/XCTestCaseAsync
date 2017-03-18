@@ -5,6 +5,7 @@ async support for XCTestCase with timeout, retry feature using main runloop
 * Async Test
 * Timeout support
 * Retry support
+* Waiting  
 
 ## Cocoapods
 ```bash
