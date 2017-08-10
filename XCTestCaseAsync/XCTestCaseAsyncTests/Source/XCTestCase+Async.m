@@ -18,17 +18,32 @@
     } while (interval > 0);
 }
 
+- (void)waitFinishTimeAsync:(NSInteger)times complete:(void (^ _Nonnull)(FinishBlock _Nonnull complete))block
+{
+    [self waitWithTimeout:INFINITY times:times asyncBlock:block];
+}
+
+
 - (void)waitWithAsync:(void (^ _Nonnull)(FinishBlock _Nonnull complete))block
 {
     [self waitWithTimeout:INFINITY asyncBlock:block];
 }
 
+
 - (BOOL)waitWithTimeout:(NSTimeInterval)timeout asyncBlock:(void (^ _Nonnull)(FinishBlock _Nonnull complete))block
 {
+    return [self waitWithTimeout:timeout times:1 asyncBlock:block];
+}
+
+- (BOOL)waitWithTimeout:(NSTimeInterval)timeout times:(NSUInteger)times asyncBlock:(void (^ _Nonnull)(FinishBlock _Nonnull complete))block
+{
     __block BOOL isFinished = NO;
-    
+    __block NSUInteger lastTimes = times;
     FinishBlock finishBlock = ^{
-        isFinished = YES;
+        lastTimes -= 1;
+        if (lastTimes == 0) {
+            isFinished = YES;
+        }
     };
     
     BOOL isTimeOut = NO;

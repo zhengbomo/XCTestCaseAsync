@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
    s.name         = "XCTestCaseAsync"
-   s.version      = "1.0.1"
+   s.version      = "1.0.2"
    s.summary      = "async support for XCTestCase with timeout, retry feature"
    s.homepage     = "https://github.com/zhengbomo/XCTestCaseAsync"
    s.license      = { :type => "MIT", :file => "LICENSE" }

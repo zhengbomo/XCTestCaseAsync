@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 typedef void(^FinishBlock)();
+
 typedef void(^CompleteBlock)(BOOL finished);
 
 /** asycn support for XCTestCase */
@@ -23,6 +24,12 @@ typedef void(^CompleteBlock)(BOOL finished);
  @param block asyncblock (you must call complete() when finish)
  */
 - (void)waitWithAsync:(void (^ _Nonnull)(FinishBlock _Nonnull complete))block;
+
+/**
+ waiting for an async block, you must call complete() for giving times
+ @param block asyncblock (you must call complete() when finish)
+ */
+- (void)waitFinishTimeAsync:(NSInteger)times complete:(void (^ _Nonnull)(FinishBlock _Nonnull complete))block;
 
 /**
  waiting for an async block, you must call complete() when async block finished
